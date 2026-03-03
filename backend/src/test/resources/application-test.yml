@@ -1,0 +1,15 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+hagap:
+  workspace:
+    base-directory: ${java.io.tmpdir}/hagap-test
+  opencode:
+    binary-path: echo
+    mode: SPAWN
+    timeout-seconds: 10
+  qdrant:
+    host: localhost
+    port: 6333

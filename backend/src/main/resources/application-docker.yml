@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres:5432/${POSTGRES_DB:hagap}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+
+hagap:
+  workspace:
+    base-directory: /data/workspaces
+  opencode:
+    binary-path: opencode
+    mode: SERVER
+    server-url: http://opencode:4096
+  qdrant:
+    host: qdrant
+    port: 6333

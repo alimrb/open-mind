@@ -1,0 +1,14 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "gallery-server": {
+      "type": "local",
+      // Absolute path so MCP servers resolve from any workspace CWD
+      "command": ["node", "/Users/a.mor/Codes/open-mind-chatpot/services/mcp-gallery/dist/index.js"]
+    },
+    "reference-server": {
+      "type": "local",
+      "command": ["node", "/Users/a.mor/Codes/open-mind-chatpot/services/mcp-reference/dist/index.js"]
+    }
+  }
+}

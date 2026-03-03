@@ -1,0 +1,52 @@
+spring:
+  application:
+    name: hagap-gateway
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_DB:hagap}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+
+hagap:
+  workspace:
+    base-directory: ${WORKSPACE_BASE_DIR:/tmp/hagap/workspaces}
+  opencode:
+    binary-path: ${OPENCODE_BINARY_PATH:opencode}
+    model: zai/glm-4.7
+    agent: build
+    mode: ${OPENCODE_MODE:SPAWN}
+    server-url: ${OPENCODE_SERVER_URL:http://opencode:4096}
+    timeout-seconds: 120
+  qdrant:
+    host: ${QDRANT_HOST:localhost}
+    port: ${QDRANT_PORT:6333}
+    collection-name: hagap_knowledge
+    vector-size: 768
+  embedding:
+    model: text-embedding

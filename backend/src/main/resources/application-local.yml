@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/${POSTGRES_DB:hagap}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+
+hagap:
+  workspace:
+    base-directory: /tmp/hagap/workspaces
+  opencode:
+    binary-path: opencode
+    mode: SPAWN
+  qdrant:
+    host: localhost
+    port: 6333
